@@ -4,11 +4,12 @@ import { Typography, Row, Col, Statistic } from 'antd'
 import { Link } from 'react-router-dom'
 import { useGetCryptosQuery } from '../services/cryptoApi'
 import { Cryptocurrencies, News } from '../components'
+import Loader from './Loader'
 export default function Homepage() {
     const { data, isFetching } = useGetCryptosQuery(10)
     const globalState = data?.data?.stats
     if (isFetching) {
-        return <p>lodaing,....</p>
+         return <Loader />
     }
     const { Title } = Typography
 
